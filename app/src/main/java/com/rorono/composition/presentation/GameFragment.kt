@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.rorono.composition.R
 import com.rorono.composition.databinding.FragmentGameBinding
+import com.rorono.composition.domain.entity.GameResult
+import com.rorono.composition.domain.entity.GameSettings
 import com.rorono.composition.domain.entity.Level
 import java.lang.RuntimeException
 
@@ -35,6 +37,16 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.tvSum.setOnClickListener {
+            getFinishedFragment(GameResult(true, 0, 0, GameSettings(0, 0, 0, 0)))
+        }
+    }
+
+    private fun getFinishedFragment(gameResult: GameResult) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container, GameFinishedFragment.newInstance(gameResult))
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onDestroy() {

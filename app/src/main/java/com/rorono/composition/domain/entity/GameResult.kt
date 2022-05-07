@@ -1,5 +1,7 @@
 package com.rorono.composition.domain.entity
 
+import java.io.Serializable
+
 data class GameResult(
 
     val winner:Boolean,
@@ -7,5 +9,5 @@ data class GameResult(
     val countOfQuestions:Int,
     val gameSettings: GameSettings
 
-) {
+):Serializable {
 }
