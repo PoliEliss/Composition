@@ -7,14 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.rorono.composition.R
 import com.rorono.composition.databinding.FragmentGameBinding
+import com.rorono.composition.domain.entity.Level
 import java.lang.RuntimeException
 
 
 class GameFragment : Fragment() {
 
+    private lateinit var level: Level
+
     private var _binding: FragmentGameBinding? = null
     private val binding: FragmentGameBinding
         get() = _binding ?: throw RuntimeException("FragmentWelcomeBinding == null")
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        parseArgs()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,5 +40,21 @@ class GameFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun parseArgs() {
+        level = requireArguments().getSerializable(KEY_LEVEl) as Level
+    }
+
+    companion object {
+
+        private const val KEY_LEVEl = "level"
+        fun newInstance(level: Level): GameFragment {
+            return GameFragment().apply {
+                arguments = Bundle().apply {
+                    putSerializable(KEY_LEVEl, level)
+                }
+            }
+        }
     }
 }
