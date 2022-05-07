@@ -6,18 +6,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.rorono.composition.R
+import com.rorono.composition.databinding.FragmentWelcomBinding
+import java.lang.RuntimeException
 
 
 class WelcomFragment : Fragment() {
+    private var _binding: FragmentWelcomBinding? = null
+    private val binding: FragmentWelcomBinding
+        get() = _binding ?: throw RuntimeException("FragmentWelcomeBinding == null")
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        _binding = FragmentWelcomBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcom, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonUnderstand.setOnClickListener {
 
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
