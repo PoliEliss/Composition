@@ -26,7 +26,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val getGameSettingUseCase = GetGameSettingUseCase(repository)
     private var timer: CountDownTimer? = null
     private val _formattedTime = MutableLiveData<String>()
-    val formated: LiveData<String>
+    val formatedTime: LiveData<String>
         get() = _formattedTime
 
     private val _question = MutableLiveData<Question>()
