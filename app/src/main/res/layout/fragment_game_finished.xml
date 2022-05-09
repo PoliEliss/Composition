@@ -20,34 +20,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Необходимое количество правильных ответов: %" />
+        android:text="@string/required_scope" />
     <TextView
         android:id="@+id/tvScopeAnswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Ваш счет:%"
+        android:text="@string/scope_answer"
         android:textSize="18sp"/>
     <TextView
         android:id="@+id/tv_required_percentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Необходимый процентр правиьных ответов:%"
+        android:text="@string/required_percentage"
         android:textSize="18sp"/>
-    <TextView
-        android:id="@+id/tv_scope_percentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/progress_answers"
-        android:textSize="18sp"/>
+
 
     <Button
         android:id="@+id/buttonRetry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Попробовать снова"
+        android:text="@string/try_again"
         android:textSize="16sp" />
 
 </LinearLayout>

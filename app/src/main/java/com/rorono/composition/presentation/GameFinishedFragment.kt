@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.FragmentManager
 import com.rorono.composition.R
 import com.rorono.composition.databinding.FragmentGameFinishedBinding
@@ -35,15 +36,40 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,object : OnBackPressedCallback(true){
+        setupClickListener()
+        bindView()
+
+    }
+
+    private fun bindView() {
+        val minCountRightAnswers = gameResult.gameSettings.minCountOfRightAnswers
+        (getString(R.string.required_scope) + minCountRightAnswers).also {
+            binding.tvRequiredAnswer.text = it
+        }
+
+        val correctNumberOfAnswer = gameResult.countOfRightAnswers
+        (getString(R.string.scope_answer) + correctNumberOfAnswer).also {
+            binding.tvScopeAnswers.text = it
+        }
+
+        val minPercentOfRightAnswer = gameResult.gameSettings.minPercentOfRightAnswers.toString()
+        (getString(R.string.required_percentage) + minPercentOfRightAnswer).also {
+            binding.tvRequiredPercentage.text = it
+        }
+
+    }
+
+    private fun setupClickListener() {
+        val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-               retryGame()
-            }
-        })
-            binding.buttonRetry.setOnClickListener {
                 retryGame()
             }
 
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        binding.buttonRetry.setOnClickListener {
+            retryGame()
+        }
     }
 
     override fun onDestroy() {
@@ -59,7 +85,10 @@ class GameFinishedFragment : Fragment() {
 
 
     private fun retryGame() {
-        requireActivity().supportFragmentManager.popBackStack(GameFragment.NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        requireActivity().supportFragmentManager.popBackStack(
+            GameFragment.NAME,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
     }
 
     companion object {
