@@ -58,8 +58,18 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
+        viewModel.startGame(level)
+        setClickListenersToOptions()
 
 
+    }
+
+    private fun setClickListenersToOptions() {
+        for (tvOption in tvOptions) {
+            tvOption.setOnClickListener {
+                viewModel.chooseAnswer(tvOption.text.toString().toInt())
+            }
+        }
     }
 
     private fun observeViewModel() {
@@ -88,8 +98,11 @@ class GameFragment : Fragment() {
         viewModel.minPercent.observe(viewLifecycleOwner) {
             binding.progressBar.secondaryProgress = it
         }
-        viewModel.gameResult.observe(viewLifecycleOwner){
+        viewModel.gameResult.observe(viewLifecycleOwner) {
             getFinishedFragment(it)
+        }
+        viewModel.progressAnswers.observe(viewLifecycleOwner){
+            binding.tvAnswersProgress.text = it
         }
     }
 
