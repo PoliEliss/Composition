@@ -9,6 +9,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.rorono.composition.R
 import com.rorono.composition.databinding.FragmentGameFinishedBinding
 import com.rorono.composition.domain.entity.GameResult
@@ -16,16 +17,14 @@ import java.lang.RuntimeException
 
 
 class GameFinishedFragment : Fragment() {
-    private lateinit var gameResult: GameResult
+    private val args by navArgs<GameFinishedFragmentArgs>()
+
     private var _binding: FragmentGameFinishedBinding? = null
     private val binding: FragmentGameFinishedBinding
         get() = _binding ?: throw RuntimeException("GameFinishedFragment == null")
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parseArgs()
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,17 +42,17 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun bindView() {
-        val minCountRightAnswers = gameResult.gameSettings.minCountOfRightAnswers
+        val minCountRightAnswers = args.gameResult.gameSettings.minCountOfRightAnswers
         (getString(R.string.required_scope) + minCountRightAnswers).also {
             binding.tvRequiredAnswer.text = it
         }
 
-        val correctNumberOfAnswer = gameResult.countOfRightAnswers
+        val correctNumberOfAnswer =args.gameResult.countOfRightAnswers
         (getString(R.string.scope_answer) + correctNumberOfAnswer).also {
             binding.tvScopeAnswers.text = it
         }
 
-        val minPercentOfRightAnswer = gameResult.gameSettings.minPercentOfRightAnswers.toString()
+        val minPercentOfRightAnswer = args.gameResult.gameSettings.minPercentOfRightAnswers.toString()
         (getString(R.string.required_percentage) + minPercentOfRightAnswer).also {
             binding.tvRequiredPercentage.text = it
         }
@@ -73,11 +72,7 @@ class GameFinishedFragment : Fragment() {
         _binding = null
     }
 
-    private fun parseArgs() {
-        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
-            gameResult = it
-        }
-    }
+
 
 
     private fun retryGame() {
@@ -88,15 +83,5 @@ class GameFinishedFragment : Fragment() {
        // )
     }
 
-    companion object {
-         const val KEY_GAME_RESULT = "gameResult"
-        fun newInstance(gameResult: GameResult): GameFinishedFragment {
-            return GameFinishedFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(KEY_GAME_RESULT, gameResult)
-                }
-            }
 
-        }
-    }
 }
