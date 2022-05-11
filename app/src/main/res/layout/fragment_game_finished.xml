@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.GameFinishedFragment"
-    android:orientation="vertical">
+<layout>
 
-    <ImageView
-        android:id="@+id/emoji_result"
-        android:layout_width="288dp"
-        android:layout_height="231dp"
-        android:layout_gravity="center"
-        android:layout_margin="48dp"
-        android:contentDescription="@string/game_over"
-        android:src="@drawable/smile" />
+    <data>
 
-    <TextView
-        android:id="@+id/tvRequiredAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/required_scope" />
-    <TextView
-        android:id="@+id/tvScopeAnswers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/scope_answer"
-        android:textSize="18sp"/>
-    <TextView
-        android:id="@+id/tv_required_percentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/required_percentage"
-        android:textSize="18sp"/>
+        <variable
+            name="gameResult"
+            type="com.rorono.composition.domain.entity.GameResult" />
+    </data>
 
-
-    <Button
-        android:id="@+id/buttonRetry"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/try_again"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".presentation.GameFinishedFragment">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/emoji_result"
+            android:layout_width="288dp"
+            android:layout_height="231dp"
+            android:layout_gravity="center"
+            android:layout_margin="48dp"
+            android:contentDescription="@string/game_over"
+            android:src="@drawable/smile" />
+
+        <TextView
+            android:id="@+id/tvRequiredAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@{gameResult.gameSettings.minCountOfRightAnswersString}" />
+
+        <TextView
+            android:id="@+id/tvScopeAnswers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@{gameResult.countOfRightAnswersString}"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_required_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@{gameResult.gameSettings.minPercentOfRightAnswersString}"
+            android:textSize="18sp" />
+
+
+        <Button
+            android:id="@+id/buttonRetry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</layout>

@@ -42,20 +42,21 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun bindView() {
-        val minCountRightAnswers = args.gameResult.gameSettings.minCountOfRightAnswers
-        (getString(R.string.required_scope) + minCountRightAnswers).also {
-            binding.tvRequiredAnswer.text = it
-        }
+        binding.gameResult = args.gameResult
+      //  val minCountRightAnswers = args.gameResult.gameSettings.minCountOfRightAnswers
+      //  (getString(R.string.required_scope) + minCountRightAnswers).also {
+      //      binding.tvRequiredAnswer.text = it
+      //  }
 
-        val correctNumberOfAnswer =args.gameResult.countOfRightAnswers
-        (getString(R.string.scope_answer) + correctNumberOfAnswer).also {
-            binding.tvScopeAnswers.text = it
-        }
+       // val correctNumberOfAnswer =args.gameResult.countOfRightAnswers
+      //  (getString(R.string.scope_answer) + correctNumberOfAnswer).also {
+     //       binding.tvScopeAnswers.text = it
+      //  }
 
-        val minPercentOfRightAnswer = args.gameResult.gameSettings.minPercentOfRightAnswers.toString()
-        (getString(R.string.required_percentage) + minPercentOfRightAnswer).also {
-            binding.tvRequiredPercentage.text = it
-        }
+       // val minPercentOfRightAnswer = args.gameResult.gameSettings.minPercentOfRightAnswers.toString()
+      //  (getString(R.string.required_percentage) + minPercentOfRightAnswer).also {
+       //     binding.tvRequiredPercentage.text = it
+      //  }
 
     }
 

@@ -1,190 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.GameFragment">
+<layout>
 
-    <TextView
-        android:id="@+id/tvTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="00:00"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSum"
-        style="@style/QuestionTextStyle"
-        android:layout_width="144dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="68dp"
-        android:text="7"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:background="@drawable/circle_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
-
-    <TextView
-        android:id="@+id/tvLeftNumber"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="252dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="7"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvRightNumber"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="276dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/tvLeftNumber"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_answers_progress"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:text="Количество правильных ответов"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSum" />
+        android:layout_height="match_parent"
+        tools:context=".presentation.GameFragment">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:max="100"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSum" />
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="00:00"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_option1"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="496dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvSum"
+            style="@style/QuestionTextStyle"
+            android:layout_width="144dp"
+            android:layout_height="144dp"
+            android:layout_marginTop="68dp"
+            android:background="@drawable/circle_background"
+            android:gravity="center"
+            android:text="7"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
 
-    <TextView
-        android:id="@+id/tv_option2"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="496dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvLeftNumber"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="131dp"
+            android:layout_marginTop="276dp"
+            android:layout_marginEnd="252dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="7"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRightNumber"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="131dp"
+            android:layout_marginTop="276dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/tvLeftNumber"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_answers_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="168dp"
+            android:text="Количество правильных ответов"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSum" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="196dp"
+            android:max="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSum" />
+
+        <TextView
+            android:id="@+id/tv_option1"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="496dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.945"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_option2"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="496dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/tv_option3"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="496dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/tv_option1"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/tv_option2"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_option3"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="496dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/tv_option1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/tv_option2"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_option4"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="592dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/tv_option1"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/tv_option2"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_option4"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="592dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/tv_option1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/tv_option2"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_option5"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/tv_option4"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_option2" />
+        <TextView
+            android:id="@+id/tv_option5"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/tv_option4"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_option2" />
 
-    <TextView
-        android:id="@+id/tv_option6"
-        style="@style/QuestionTextStyle"
-        android:layout_width="118dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="@string/question_mark"
-        android:textSize="38sp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_option1" />
+        <TextView
+            android:id="@+id/tv_option6"
+            style="@style/QuestionTextStyle"
+            android:layout_width="118dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:text="@string/question_mark"
+            android:textSize="38sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_option1" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
