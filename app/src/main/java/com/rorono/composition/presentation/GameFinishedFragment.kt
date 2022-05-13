@@ -24,8 +24,6 @@ class GameFinishedFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("GameFinishedFragment == null")
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,27 +35,8 @@ class GameFinishedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListener()
-        bindView()
 
-    }
-
-    private fun bindView() {
         binding.gameResult = args.gameResult
-      //  val minCountRightAnswers = args.gameResult.gameSettings.minCountOfRightAnswers
-      //  (getString(R.string.required_scope) + minCountRightAnswers).also {
-      //      binding.tvRequiredAnswer.text = it
-      //  }
-
-       // val correctNumberOfAnswer =args.gameResult.countOfRightAnswers
-      //  (getString(R.string.scope_answer) + correctNumberOfAnswer).also {
-     //       binding.tvScopeAnswers.text = it
-      //  }
-
-       // val minPercentOfRightAnswer = args.gameResult.gameSettings.minPercentOfRightAnswers.toString()
-      //  (getString(R.string.required_percentage) + minPercentOfRightAnswer).also {
-       //     binding.tvRequiredPercentage.text = it
-      //  }
-
     }
 
     private fun setupClickListener() {
@@ -73,15 +52,12 @@ class GameFinishedFragment : Fragment() {
         _binding = null
     }
 
-
-
-
     private fun retryGame() {
         findNavController().popBackStack()
-      //  requireActivity().supportFragmentManager.popBackStack(
-          //  GameFragment.NAME,
-          //  FragmentManager.POP_BACK_STACK_INCLUSIVE
-       // )
+        //  requireActivity().supportFragmentManager.popBackStack(
+        //  GameFragment.NAME,
+        //  FragmentManager.POP_BACK_STACK_INCLUSIVE
+        // )
     }
 
 
